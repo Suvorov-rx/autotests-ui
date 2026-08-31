@@ -2,22 +2,272 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Техники тестирования</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* Стили для блоков */
+        div, section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        div:hover, section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Заголовок */
+        h1 {
+            color: #2d3748;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        /* Изображение */
+        img {
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 12px;
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Список */
+        ol {
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        ol li {
+            color: #4a5568;
+            font-size: 18px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f7fafc;
+            list-style-type: decimal;
+        }
+
+        ol li:last-child {
+            border-bottom: none;
+        }
+
+        ol li::marker {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Ссылка */
+        a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin: 10px 0;
+        }
+
+        a:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        /* Поле ввода */
+        input[type="text"] {
+            width: 70%;
+            padding: 12px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px 0;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Кнопки */
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        button[type="reset"] {
+            background: #fc8181;
+        }
+
+        button[type="reset"]:hover {
+            background: #e53e3e;
+        }
+
+        /* Стили для блоков с текстом */
+        p, span {
+            color: #2d3748;
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        /* Разные цвета для параграфов */
+        div:nth-of-type(2) p:nth-child(1) {
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        div:nth-of-type(2) p:nth-child(2) {
+            color: #4299e1;
+            font-weight: bold;
+        }
+
+        div:nth-of-type(2) p:nth-child(3) {
+            color: #ed8936;
+            font-weight: bold;
+        }
+
+        /* Стили для footer */
+        #footer {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        #footer span {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #footer span:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            div, section {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            #footer {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-<div>
-    <h1>Техники тестирования</h1>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYRCUMmV1Wy7ME6rbLG7Yh7BCKISOIoX5Eq5Do5J4G1sNuexFdnaRE-uYT&s=10">
-    <ol>
-        <li>Эквивалентное разбиение </li>
-        <li>Граничные значения</li>
-        <li>Таблица принятия решений</li>
-        <li>Тестирование переходов состояний</li>
-        <li>Попарное тестирование </li>
-    </ol>
-    <a href ="https://habr.com/ru/articles/549054/"> Узнать подробнее</a>
-    <input type="text" placeholder="Введите значение для поиска">
-    <button type="submit">Отправить</button>
-</div>
+    <div>
+        <h1>Техники тестирования</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYRCUMmV1Wy7ME6rbLG7Yh7BCKISOIoX5Eq5Do5J4G1sNuexFdnaRE-uYT&s=10" alt="Testing">
+        <ol>
+            <li>Эквивалентное разбиение</li>
+            <li>Граничные значения</li>
+            <li>Таблица принятия решений</li>
+            <li>Тестирование переходов состояний</li>
+            <li>Попарное тестирование</li>
+        </ol>
+        <a href="https://habr.com/ru/articles/549054/">Узнать подробнее</a>
+        <br>
+        <input type="text" placeholder="Введите значение для поиска">
+        <button type="submit">Отправить</button>
+    </div>
+
+    <div>
+        <p>Python</p>
+        <p>Playwright</p>
+        <p>Pytest</p>
+    </div>
+
+    <div>
+        <form>
+            <button type="submit">Login</button>
+            <button type="reset">Registration</button>
+        </form>
+        <div>
+            <button type="submit">Login</button>
+            <button type="reset">Registration</button>
+        </div>
+    </div>
+
+    <div>
+        <p>Python</p>
+    </div>
+
+    <section>
+        <p>Playwright</p>
+    </section>
+
+    <div>
+        <div id="footer">
+            <span>Python</span>
+            <span>Pytest</span>
+            <span>Playwright</span>
+        </div>
+    </div>
 </body>
 </html>
